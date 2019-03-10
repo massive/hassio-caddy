@@ -4,7 +4,6 @@
     "slug": "caddy",
     "description": "Caddy web server",
     "url": "https://github.com/korylprince/hassio-caddy/tree/master/caddy",
-    "image": "korylprince/hassio-caddy-{arch}",
     "startup": "services",
     "boot": "auto",
     "map": ["share", "ssl:rw"],
