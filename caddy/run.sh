@@ -15,6 +15,6 @@ else
     echo "Using built-in Caddy: $($CADDY_PATH -version)"
 fi
 
-echo "Running Caddy: ${ENV_VARS[*]} exec $CADDY_PATH ${ARGS[*]}"
+echo "Running Caddy: exec env ${ENV_VARS[*]} $CADDY_PATH ${ARGS[*]}"
 
-${ENV_VARS[*]} exec $CADDY_PATH ${ARGS[*]}
+exec env ${ENV_VARS[*]} $CADDY_PATH ${ARGS[*]}
