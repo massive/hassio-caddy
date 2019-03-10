@@ -6,6 +6,7 @@ CADDY_SHARE_PATH="/share/caddy"
 CADDY_PATH=/usr/sbin/caddy
 
 ARGS=( "-conf" "$CADDY_SHARE_PATH/Caddyfile" $(jq --raw-output '.flags[]' $CONFIG_PATH) )
+ENV_VARS=$(jq --raw-output '.env_vars[]' $CONFIG_PATH)
 
 echo "Running Caddy with arguments: ${ARGS[*]}"
 
@@ -16,4 +17,4 @@ else
     echo "Using built-in Caddy: $($CADDY_PATH -version)"
 fi
 
-exec $CADDY_PATH ${ARGS[*]}
+${ENV_VARS[*]} exec $CADDY_PATH ${ARGS[*]}
